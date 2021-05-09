@@ -18,7 +18,7 @@
       <input class="w-1/2 px-2 py-2 text-gray-700 bg-gray-200 rounded" id="cus_email"  name="cus_email" type="text" required="" placeholder="Quantity" aria-label="Email">
     </div>
     <div class="mt-4">
-      <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Request Order</button>
+      <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Changed This Button Order</button>
     </div>
   </form>
 </div>
