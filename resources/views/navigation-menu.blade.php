@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('showOrderForm') }}" :active="request()->routeIs('showOrderForm')">
                         {{ __('Order Form') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('showTransferForm') }}" :active="request()->routeIs('showTransferForm')">
+                        {{ __('Transfer Form') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

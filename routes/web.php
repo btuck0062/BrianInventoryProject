@@ -29,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // Create Order Model: What does a order look like?
 
+
 Route::get('/order-form', 'App\Http\Controllers\OrderController@showForm')->name('showOrderForm');
 
 // We need a form to request products
@@ -41,7 +42,7 @@ Route::get('/order-form', 'App\Http\Controllers\OrderController@showForm')->name
 // Search product Db table
 
 // Transfer page
-
+Route::get('/Transfer-form', 'App\Http\Controllers\TransferController@showForm')->name('showTransferForm');
 // Issue 'these' products to a "customer"
 
 
