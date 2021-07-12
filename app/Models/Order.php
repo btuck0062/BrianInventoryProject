@@ -15,13 +15,14 @@ class Order extends Model
 
     protected $fillable = [
         // Auto insert user ID based on who is logged in.
+        // Onyly admin has the right to make orders
         'user_id',
         // Select product
         'product_id',
         // Find Product with the id of request()->product_id, insert 'serial_number', 'description'
         'serial_number',
         'part_number',
-        'description'
+        'description',
         // User inserts quantity
         'quantity',
     ];
@@ -31,7 +32,7 @@ class Order extends Model
     }
 
     public function product(){
-        return $this->belongsToMany(Product::class)->withPivot('quantity');
+        return $this->hasOne(Product::class, 'id', 'product_id');
     }
 
 }

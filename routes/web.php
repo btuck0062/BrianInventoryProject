@@ -30,10 +30,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // Create Order Model: What does a order look like?
 
 
-Route::get('/order-form', 'App\Http\Controllers\OrderController@showForm')->name('showOrderForm');
+Route::get('/order-form', 'App\Http\Controllers\OrderController@showOrderForm')->name('showOrderForm');
+Route::post('/order-form', 'App\Http\Controllers\OrderController@createOrder')->name('createOrder');
+Route::get('/order/{order}', 'App\Http\Controllers\OrderController@showOrder')->name('showOrder');
 
-// We need a form to request products
-
+// We need a form to request product
 // We need to create products
 // Create product form
 // Create A product seeder or factory
@@ -45,36 +46,4 @@ Route::get('/order-form', 'App\Http\Controllers\OrderController@showForm')->name
 Route::get('/Transfer-form', 'App\Http\Controllers\TransferController@showForm')->name('showTransferForm');
 // Issue 'these' products to a "customer"
 
-
-// ************************************************************************* //
-// Brian's Task
-// ************************************************************************* //
-
-//  How to create a controller in laravel?
-//  How to create a migration in laravel?
-//  How to create a view in laravel?
-
-// Create a controller & view for each of the following functions
-//   Transfer Page
-            //  Transfer Route
-            //  Transfer Controller
-
-//   Serial number Search
-            // Page
-            // Route
-            // Controller
-        
-//   Customer Controller
-            // Page
-            // Route
-            // Controller
-
-// ************************************************************************* //
-// Brion's Tasks
-// ************************************************************************* //
-
-
-// Write Schema in document
-// Architect Data Relationships
-// Write main controller functions with explanation in document
 

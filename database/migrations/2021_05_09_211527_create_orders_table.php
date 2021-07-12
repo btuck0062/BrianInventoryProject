@@ -16,15 +16,15 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             // user id
-            $table->unsignedBigInteger('user_id');
-            // product ids
+            $table->foreignId('user_id')->constrained('users');           
+             // product ids
             // found on pivot table order_product
-            $table->string('part_number');
-            $table->string('serial_number');
-            $table->longText('description');
+            $table->foreignId('product_id')->constrained();
+            $table->string('part_number')->nullable();
+            $table->string('serial_number')->nullable();
+            $table->longText('description')->nullable();
+            $table->integer('quantity')->nullable();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

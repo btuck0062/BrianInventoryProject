@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\User;
+use App\Models\Order;
 use App\Models\Product;
 
 class OrderController extends Controller
@@ -14,31 +14,37 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showForm()
+    public function showOrderForm()
     {
-        return view('order-views.order')->layout('layouts.app');
+        // Get All Products for product loop in select
+        $products = Product::all();
+        $orders = Order::paginate(10);
+
+        // Returns form view
+        // "compact" === ['products' => $products]
+        return view('order-views.order', compact('products', 'orders'))->layout('layouts.app');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Request
      */
-    public function create()
+    public function createOrder(Request $request)
     {
+        // get all the form data from request
+        // create new order
+        // store order
 
 
-    }
+        $order = Order::create([
+            'user_id' => auth()->user()->id,
+            'product_id' => $request->product_id,
+            'quantity' => $request->quantity,
+        ]);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+       return redirect()->back();
+
     }
 
     /**
@@ -47,9 +53,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showOrder(Order $order)
     {
-        //
+        return view('order-views.show', compact('order'))->layout('layouts.app');
     }
 
     /**
